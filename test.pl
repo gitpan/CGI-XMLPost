@@ -1,4 +1,4 @@
-use Test::More tests => 5; 
+use Test::More tests => 6; 
 
 use_ok('CGI::XMLPost');
 
@@ -25,3 +25,18 @@ EOXML
 is('application/xml', $xmlpost->content_type(),'Got content type');
 is($ENV{CONTENT_LENGTH}, $xmlpost->content_length(),'Got correct content length');
 
+my $got_xpath = 0;
+
+eval
+{
+   require XML::XPath;
+   $got_xpath = 1;
+};
+
+SKIP:
+{
+   skip 'No XML::XPath', 1 unless $got_xpath;
+
+   my $xpath;
+   is('XML::XPath',ref($xpath = $xmlpost->as_xpath()),'Got XPath Object');
+}

@@ -14,6 +14,9 @@
 #*****************************************************************************
 #*
 #*          $Log: XMLPost.pm,v $
+#*          Revision 1.3  2003/06/18 08:57:39  gellyfish
+#*          Added as_xpath() method
+#*
 #*          Revision 1.2  2002/05/26 12:59:15  gellyfish
 #*          Version updated to CPAN
 #*
@@ -32,7 +35,7 @@ use Carp;
 
 use vars qw($VERSION);
 
-($VERSION) = q$Revision: 1.2 $ =~ /([\d.]+)/;
+($VERSION) = q$Revision: 1.3 $ =~ /([\d.]+)/;
 
 # Ripped off from CGI.pm
 
@@ -281,6 +284,28 @@ sub remote_address
 {
     my ( $self ) = @_;
     return $ENV{REMOTE_ADDRESS};
+}
+
+=item as_xpath
+
+Returns an XML::XPath object inititialized with the received XML or a false
+value if XML::XPath is not present or the parse failed.
+
+=cut
+
+sub as_xpath
+{
+    my ( $self ) = @_;
+
+    my $got_xpath = undef;
+
+    eval
+    {
+       require XML::XPath;
+       $got_xpath = 1;
+    };
+
+    return $got_xpath ? XML::XPath->new(xml => $self->data()) : undef;
 }
 
 1;

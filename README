@@ -34,14 +34,17 @@ directory to @INC with something like:
 DEPENDENCIES
 ============
 
-The module has no external dependencies itself.  However the test suite
+The module has no absolute external dependencies, except as of version 1.3
+if you require to use the as_xpath() method you will need to have XML::XPath
+installed - however the module will function otherwise without it.  
+However the test suite
 does require that Test::More is installed (this is part of the 5.8.0
 distribution anyhow).
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright (c)  Jonathan Stowe 2002
+Copyright (c)  Jonathan Stowe 2002, 2003
 
 This module is free software.  It can be distributed under the same terms
 as Perl itself.  The Perl license can be found in the file README in the

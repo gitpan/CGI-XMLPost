@@ -2,3 +2,6 @@ Revision history for Perl extension CGI::XMLPost.
 
 1.2 Sun May 26 13:58:02 BST 2002
 	- Version uploaded to CPAN
+
+1.3 Wed Jun 18 09:55:01 BST 2003
+        - Added as_xpath() method.
