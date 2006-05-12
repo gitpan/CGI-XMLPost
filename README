@@ -5,7 +5,7 @@ This module is designed to support CGI-like applications that are designed
 to receive XML data as the body part of an HTTP POST request.  This is likely
 to be useful in Message Oriented Middleware or Business to Business type
 applications.  In principle it could be also be used to support SOAP or
-XML::RPC server applications, but bearing in mind that there are modules
+XML-RPC server applications, but bearing in mind that there are modules
 that already do that well it probably isn't necessary.
 
 INSTALLATION
@@ -44,7 +44,7 @@ distribution anyhow).
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright (c)  Jonathan Stowe 2002, 2003
+Copyright (c)  Jonathan Stowe 2002,2003,2004,2005,2006
 
 This module is free software.  It can be distributed under the same terms
 as Perl itself.  The Perl license can be found in the file README in the

@@ -14,6 +14,9 @@
 #*****************************************************************************
 #*
 #*          $Log: XMLPost.pm,v $
+#*          Revision 1.5  2006/05/12 10:36:50  jonathan
+#*          * Altered to use sysread
+#*
 #*          Revision 1.4  2004/03/30 16:57:41  jonathan
 #*          FIxed bogus XML declaration
 #*
@@ -38,7 +41,7 @@ use Carp;
 
 use vars qw($VERSION);
 
-($VERSION) = q$Revision: 1.4 $ =~ /([\d.]+)/;
+($VERSION) = q$Revision: 1.5 $ =~ /([\d.]+)/;
 
 # Ripped off from CGI.pm
 
@@ -125,7 +128,7 @@ sub new
 
    my $cl = $self->content_length();
 
-   if ( read( STDIN, $self->{_data}, $cl) == $cl )
+   if ( sysread( STDIN, $self->{_data}, $cl) == $cl )
    {
       return $self;
    }

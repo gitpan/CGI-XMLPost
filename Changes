@@ -8,3 +8,6 @@ Revision history for Perl extension CGI::XMLPost.
 
 1.4 Tue Mar 30 17:57:15 BST 2004
         - Fixed bogus XML declaration
+
+1.5 Fri May 12 11:29:30 BST 2006
+        - Use sysread to work on Windows
